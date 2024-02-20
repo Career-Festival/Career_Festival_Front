@@ -22,6 +22,7 @@ const HorizontalDivider = styled.div`
 `;
 
 const FileContainer = styled.img`
+  width: 100%;
   height: auto;
   background: transparent;
   margin: 5vw 0 5vw 0;
