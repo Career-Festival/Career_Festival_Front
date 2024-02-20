@@ -127,7 +127,11 @@ const Recommend = ({
   eventId,
 }) => {
   return (
-    <StyledLink to={`/event/${eventId}`}>
+
+    <StyledLink to={`/event/${eventId}`}> 
+      {" "}
+      {/* 지금은 영상을 찍기 위함 */}
+
       <RecommendCardcontainer>
         <RecommendMainImgWrapper>
           <img src={eventMainFileUrl} alt="행사 이미지" />

@@ -317,42 +317,45 @@ const FestivalListPage = () => {
   const [eventViews, setEventViews] = useState([]);
   const [eventRegion, setEventRegion] = useState([]);
 
-  const [category, setCategory] = useState([]);
-  const [keywordName, setKeywordName] = useState([]);
-  const [city, setCity] = useState("");
-  const [addressLine, setAddressLine] = useState("");
 
   useEffect(() => {
-    const fetchEventData = async () => {
+    const fetchData = async () => {
+      //로그인이 안된 경우 (토큰, params 모두 null)
       try {
-        const response = await axios.get("http://localhost:9000");
 
-        console.log("왜 6개지", response.data);
+        // 모든 쿼리 매개변수가 null인 경우
+        const response = await axios.get('http://localhost:9000/festival-list', {
+          params: {
+            category: null,
+            keywordName: null,
+            city: null,
+            addressLine: null
+          }
+        });
 
         // eventViews datetime 변환 함수
         const modifiedEvent = (events) => {
-          return events.map((event) => ({
+          return events.map(event => ({
             ...event,
             recruitmentStart: formatDateTime(event.recruitmentStart),
-            recruitmentEnd: formatDateTime(event.recruitmentEnd),
+            recruitmentEnd: formatDateTime(event.recruitmentEnd)
           }));
         };
 
         const modifiedEventViews = modifiedEvent(response.data.eventViews);
-
-        setEventNames(response.data.eventNames);
         setEventViews(modifiedEventViews);
-        setEventRegion(response.data.eventRegion);
-        console.log(modifiedEventViews);
 
-        console.log("데이터 fetching에 성공했습니다.");
+        console.log('서버로부터 받은 데이터:', response.data);
+        console.log(modifiedEventViews);
       } catch (error) {
-        console.error("Error fetching data:", error);
+        console.error('데이터를 가져오는 중 에러 발생:', error);
       }
     };
 
-    fetchEventData();
-  }, []);
+    // fetchData 함수 실행
+    fetchData();
+
+  }, []); // 빈 배열을 전달하여 컴포넌트가 처음 마운트될 때만 실행되도록 함
 
   return (
     <div>
@@ -421,7 +424,6 @@ const FestivalListPage = () => {
                 isLiked={item.isLiked}
                 eventCost={item.eventCost}
                 organizerProfileUrl={item.organizerProfileUrl}
-                onClick={() => (window.location.href = `/event/${item.id}`)}
               />
             ))}
           </FestivalListWrapper>

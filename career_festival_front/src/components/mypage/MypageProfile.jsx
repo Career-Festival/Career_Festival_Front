@@ -194,7 +194,7 @@ const HorizontalDivider = styled.div`
 `;
 
 function MypageProfile() {
-  const userInfo = JSON.parse(localStorage.getItem("userInfo"));
+  const mypageData = JSON.parse(localStorage.getItem("mypageData"));
   
   return (
     <div>
@@ -204,20 +204,20 @@ function MypageProfile() {
         </MypageProfileImgWrapper>
         <MypageInfoWrapper>
           <h2>
-            안녕하세요. <span>{userInfo.name}</span>입니다.
+            안녕하세요. <span>{mypageData.name}</span>입니다.
           </h2>{" "}
           {/* 데이터 연결 필요 */}
           <EmailWrapper>
             <h2>이메일</h2>
-            <div>{userInfo.email}</div>
+            <div>{mypageData.email}</div>
           </EmailWrapper>
           <PersonalAreaWrapper>
             <h2>관심지역</h2>
-            <AreaItem>{userInfo.addressLine}</AreaItem>
+            <AreaItem>{mypageData.addressLine}</AreaItem>
           </PersonalAreaWrapper>
           <Introduce>
             <h2>연락처</h2>
-            <div>{userInfo.phoneNumber}</div>
+            <div>{mypageData.phoneNumber}</div>
           </Introduce>
         </MypageInfoWrapper>
         {/*<ShowProfile>보여지는 프로필 설정하기</ShowProfile>*/}
@@ -228,7 +228,7 @@ function MypageProfile() {
         <CareerKeywordContainer>
           <h2>내 커리어 키워드</h2>
           <ContentWrapper1>
-            {userInfo.keywordNameList.map((keyword, index) => (
+            {mypageData.keywordNameList.map((keyword, index) => (
               <KeywordItem key={index}>{keyword}</KeywordItem>
             ))}
           </ContentWrapper1>
@@ -237,17 +237,17 @@ function MypageProfile() {
         <DepartmentContainer>
           <h2>내가 속한 학교 혹은 단체 및 회사</h2>
           <ContentWrapper2>
-            <div>{userInfo.company}</div>
-            <div>{userInfo.department}</div>
+            <div>{mypageData.company}</div>
+            <div>{mypageData.department}</div>
           </ContentWrapper2>
         </DepartmentContainer>
 
         <PersonalContainer>
           <h2>나이 및 성별</h2>
           <ContentWrapper3>
-            <div>{userInfo.age}</div>
+            <div>{mypageData.age}</div>
             <VerticalDivider />
-            <div>{userInfo.gender}</div>
+            <div>{mypageData.gender}</div>
           </ContentWrapper3>
         </PersonalContainer>
       </MypageInfoContainer>

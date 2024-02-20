@@ -213,9 +213,9 @@ function MypageProfileCorrection() {
   // useEffect를 사용하여 컴포넌트가 처음 마운트될 때 실행될 로직 추가
   useEffect(() => {
     // 로컬 스토리지에서 사용자 정보를 가져와서 이메일을 설정합니다.
-    const userInfo = JSON.parse(localStorage.getItem("userInfo"));
-    if (userInfo && userInfo.email) {
-      setEmail(userInfo.email);
+    const mypageData = JSON.parse(localStorage.getItem("mypageData"));
+    if (mypageData && mypageData.email) {
+      setEmail(mypageData.email);
     }
   }, []);
 
@@ -244,7 +244,7 @@ function MypageProfileCorrection() {
   //모든 항목이 입력되었는지 확인
 
   const [affiliation, setAffiliation] = useState(""); // 추가: 소속 상태
-  const userInfo = JSON.parse(localStorage.getItem("userInfo"));
+  const mypageData = JSON.parse(localStorage.getItem("mypageData"));
   
   return (
     <div>
@@ -257,7 +257,7 @@ function MypageProfileCorrection() {
             <h2>이름</h2>
             <input
               type="text"
-              placeholder={userInfo.name}
+              placeholder={mypageData.name}
               value={name}
               onChange={(e) => setName(e.target.value)}
             />

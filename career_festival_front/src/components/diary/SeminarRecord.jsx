@@ -50,7 +50,7 @@ function SeminarRecord({ onComplete }) {
 
   const onSaveData = () => {
     axios
-      .post("http://localhost:9000/", { desc })
+      .post("/api/saveData", { desc })
       .then((response) => {
         console.log("데이터 저장 완료", response.data);
         onComplete(true);
@@ -71,8 +71,8 @@ function SeminarRecord({ onComplete }) {
               <Editor value={desc} onChange={(value) => setDesc(value)} />
             </div>
           </TextContainer>
-          {/* <div className="pd12"> */}
-            {/* <button style={{ fontSize:"1vw" }} className="lf-button primary" onClick={onSaveData}>
+          {/* <div className="pd12">
+            <button style={{ fontSize:"1vw" }} className="lf-button primary" onClick={onSaveData}>
               데이터 저장
             </button>
           </div> */}

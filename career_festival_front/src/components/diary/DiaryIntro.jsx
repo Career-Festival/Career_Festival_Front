@@ -51,13 +51,13 @@ const DiaryImage = styled.img`
 `;
 
 function RecordIntro() {
-  const userInfo = JSON.parse(localStorage.getItem("userInfo"));
+  const mypageData = JSON.parse(localStorage.getItem("mypageData"));
   
   return (
     <Container>
       <IntroContainer>
         <HelloContainer>
-          <ColorText>{userInfo.name}</ColorText>
+          <ColorText>{mypageData.name}</ColorText>
           <NormalText>님, 안녕하세요?</NormalText>
         </HelloContainer>
         <ContentContainer>
