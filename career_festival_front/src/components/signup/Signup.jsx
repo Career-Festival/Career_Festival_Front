@@ -66,7 +66,7 @@ const Signup = () => {
       };
       // 백엔드 API 호출 및 응답 처리
       // fetch 함수 호출 또는 axios 등을 사용하여 백엔드로 데이터 전송
-      const response = await fetch("http://localhost:9000/signup", {
+      const response = await fetch("https://www.career-festival.com:443/signup", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"

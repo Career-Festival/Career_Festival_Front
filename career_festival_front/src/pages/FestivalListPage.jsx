@@ -324,7 +324,7 @@ const FestivalListPage = () => {
       try {
 
         // 모든 쿼리 매개변수가 null인 경우
-        const response = await axios.get('http://localhost:9000/festival-list', {
+        const response = await axios.get('https://www.career-festival.com:443/festival-list', {
           params: {
             category: null,
             keywordName: null,
