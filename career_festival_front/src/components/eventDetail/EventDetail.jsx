@@ -11,6 +11,7 @@ const DetailContainer = styled.div`
 const Thumbnail = styled.img`
   width: 50vw;
   height: 25vw;
+  object-fit: cover;
 `;
 
 const HorizontalDivider = styled.div`
@@ -21,12 +22,12 @@ const HorizontalDivider = styled.div`
 `;
 
 const FileContainer = styled.img`
-  width: 100%;
   height: auto;
-  background: #d9d9d9;
+  background: transparent;
   margin: 5vw 0 5vw 0;
   text-align: center;
   align-items: center;
+  object-fit: contain;
 `;
 
 const PlaceContainer = styled.div`
