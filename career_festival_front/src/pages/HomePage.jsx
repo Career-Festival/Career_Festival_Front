@@ -101,12 +101,15 @@ const RecommendPlaceContainer = styled.div`
 
     font-size: 1.5rem;
     font-weight: 900;
-    margin-bottom: 3rem;
+
     justify-items: center;
 
     @media screen and (max-width: 600px) {
       font-size: 2vw;
     }
+  }
+  h4 {
+    margin-top: 0;
   }
 `;
 
@@ -136,6 +139,7 @@ const HomePage = () => {
     isLoggedIn,
     user,
     logout,
+    fetchMypageInfo,
     fetchMainpageInfo,
     getTokenFromLocalStorage,
   } = useAuth(); // useAuth 훅을 통해 isLoggedIn, user 사용
@@ -154,6 +158,7 @@ const HomePage = () => {
   useEffect(() => {
     console.log("isLoggedIn:", isLoggedIn);
     console.log("🟡🟡🟡user 정보:", user);
+    fetchMypageInfo();
   }, [isLoggedIn, user]);
 
   useEffect(() => {
@@ -179,6 +184,7 @@ const HomePage = () => {
       if (isLoggedIn) {
         console.log("🟢로그인 O  -> fetchMainpageInfo 실행합니다");
         //fetchMainpageInfo();
+        fetchMypageInfo();
       } else {
         console.log("🔴로그인 X  -> fetchData 실행합니다");
         fetchData();
@@ -285,9 +291,8 @@ const HomePage = () => {
             모든행사보기
           </HomePageShowAllLink>
           <PersonalContainerDiv>
-            회원가입 시 선택한
-            <span style={{ color: "#582fff" }}> 커리어 키워드</span>에 가장
-            부합한 행사들을 볼 수 있어요!
+            <span style={{ color: "#582fff" }}>career festival </span>에서 가장
+            인기있는 행사들을 볼 수 있어요!
           </PersonalContainerDiv>
 
           <RecommendPersonalWraper>
@@ -312,8 +317,7 @@ const HomePage = () => {
 
         <RecommendPlaceContainer>
           <h2>
-            <span>
-              {/* 지역명 */}
+            {/*<span>
               <InterestArea
                 style={{}}
                 selectedArea={selectedArea}
@@ -325,9 +329,10 @@ const HomePage = () => {
                 closeModal={closeModal}
                 buttonText="지역명"
               />
-            </span>
-            근처 행사
+            </span>*/}
+            위치 별 행사
           </h2>
+          <h4>로그인하면 내가 선택한 지역의 행사 정보를 확인 할 수 있어요!</h4>
           <HomePageShowAllLink to="/festival-list">
             모든행사보기
           </HomePageShowAllLink>
