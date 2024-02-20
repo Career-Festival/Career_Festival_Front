@@ -27,7 +27,7 @@ const Pick = () => {
           checked={selectedOption === "seminar"}
           onChange={handleOptionChange}
         />
-        세미나
+        강연/세미나
       </PickLabel>
       <PickLabel>
         <input
@@ -45,7 +45,7 @@ const Pick = () => {
           checked={selectedOption === "exhibition"}
           onChange={handleOptionChange}
         />
-        박람회
+        전시/박람회
       </PickLabel>
       <PickLabel>
         <input

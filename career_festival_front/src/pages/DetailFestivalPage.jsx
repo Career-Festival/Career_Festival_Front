@@ -72,7 +72,7 @@ const DetailFestivalPage = () => {
     const fetchEventDetailData = async () => {
       try {
         const response = await axios.get(
-          `https://www.career-festival/event/${eventId}`
+          `http://localhost:9000/event/${eventId}`
         );
 
         const eventInfo = response.data.eventInformation[0];
@@ -99,7 +99,7 @@ const DetailFestivalPage = () => {
     const fetchEventOrganizerData = async () => {
       try {
         const response = await axios.get(
-          `https://www.career-festival/event/${eventId}`
+          `http://localhost:9000/event/${eventId}`
         );
 
         const organizerInfo = response.data.organizerInformation;

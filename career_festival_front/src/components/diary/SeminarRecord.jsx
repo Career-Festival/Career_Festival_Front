@@ -71,11 +71,11 @@ function SeminarRecord({ onComplete }) {
               <Editor value={desc} onChange={(value) => setDesc(value)} />
             </div>
           </TextContainer>
-          <div className="pd12">
+          {/* <div className="pd12">
             <button style={{ fontSize:"1vw" }} className="lf-button primary" onClick={onSaveData}>
               데이터 저장
             </button>
-          </div>
+          </div> */}
         </ContentContainer>
       </InputContainer>
     </RecordContainer>
