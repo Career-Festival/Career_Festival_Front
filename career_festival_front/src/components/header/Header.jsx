@@ -188,8 +188,16 @@ const Header = () => {
     // 여기에서 검색 버튼이 클릭되었을 때 수행할 동작을 추가
     // 예를 들면 검색 결과를 가져오거나 페이지를 이동하는 등의 동작
     console.log("검색어:", searchTerm);
+
+    // 실제 검색 결과가 없을 경우 처리
+    const searchResultExists = false;
+
+    // 검색 결과가 없는 경우 메시지를 출력
+    if (!searchResultExists) {
+      alert("찾는 정보가 없습니다.");
+    }
   };
-  
+
   // 마이페이지 버튼 클릭 시 fetchMypageInfo 함수 호출 및 2초 대기 설정
   const handleMypageButtonClick = () => {
     fetchMypageInfo(); // fetchMypageInfo 함수 호출
@@ -249,9 +257,9 @@ const Header = () => {
         <LinkItem to="/festival-list">행사목록</LinkItem>
         <LinkItem to="/diary">기록장</LinkItem>
         {/* 마이페이지 버튼 */}
-      <LinkItem to="/mypage" onClick={handleMypageButtonClick}>
-        마이페이지
-      </LinkItem>
+        <LinkItem to="/mypage" onClick={handleMypageButtonClick}>
+          마이페이지
+        </LinkItem>
         <TextContiner>
           <RegisterItem to="/register/level1">행사개설하기</RegisterItem>
           {/* <RegisterItem to="/register/level1">행사개설하기</RegisterItem> 
@@ -260,7 +268,9 @@ const Header = () => {
           */}
           <VerticalLine />
           <WelcomeText>
-            {isLoggedIn ? `${user.userName} 님 환영합니다!` : "로그인 해주세요!"}
+            {isLoggedIn
+              ? `${user.userName} 님 환영합니다!`
+              : "로그인 해주세요!"}
             {/* {isLoggedIn ? `${user} 님 환영합니다!` : "로그인 해주세요!"}/ */}
           </WelcomeText>
         </TextContiner>
