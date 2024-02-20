@@ -58,7 +58,7 @@ function RecordIntro() {
       <IntroContainer>
         <HelloContainer>
           <ColorText></ColorText>
-          <NormalText>님, 안녕하세요?</NormalText>
+          <NormalText>{mypageData.name}님, 안녕하세요?</NormalText>
         </HelloContainer>
         <ContentContainer>
           <NormalText>행사에서 얻었던 정보들을</NormalText>
