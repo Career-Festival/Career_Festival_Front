@@ -144,12 +144,12 @@ const Organizer = () => {
       console.error("모든 항목을 완료해야 합니다.");
     }
   };
-  const user = JSON.parse(localStorage.getItem("user"));
+
 
   // Organizer 컴포넌트의 렌더링 부분입니다.
   return (
     <Container>
-      <Title>{user.userName}, Career Festival에 가입해주셔서 감사합니다.</Title>
+      <Title>Career Festival에 가입해주셔서 감사합니다.</Title>
       <Subtitle>
         직접 <span style={{ fontWeight: "bold" }}>오프라인 커리어 행사</span>를
         개설하고 싶으신가요?
