@@ -240,13 +240,13 @@ const Modal = ({ closeModal }) => {
 
 
           <SignupStyle.EmailVerificationContainer>
-            <input
+            {/* <input
               type="text"
               placeholder="인증번호 6자리를 입력해주세요."
               value={emailVerificationCode}
               onChange={(e) => setEmailVerificationCode(e.target.value)}
             />
-            <button>인증하기</button>
+            <button>인증하기</button> */}
           </SignupStyle.EmailVerificationContainer>
         </div>
 

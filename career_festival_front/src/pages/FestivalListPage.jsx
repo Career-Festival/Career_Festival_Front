@@ -7,7 +7,7 @@ import Checkbox from "../components/home/Checkbox";
 import InterestArea from "../components/signup/InterestArea";
 import FilterKeyword from "../components/home/Filterkeyword";
 import Recommend from "../components/home/Recommend";
-import dummy from "../db/RecommendedEvents.json";
+//import dummy from "../db/RecommendedEvents.json";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
@@ -255,8 +255,8 @@ const FestivalListPage = () => {
   const getCurrentPageData = useCallback(() => {
     const startIndex = (currentPage - 1) * itemsPerPage;
     const endIndex = startIndex + itemsPerPage;
-    const recommendedByPerson = dummy.RecommendedByPerson || [];
-    return recommendedByPerson.slice(startIndex, endIndex);
+    //const recommendedByPerson = dummy.RecommendedByPerson || [];
+    //return recommendedByPerson.slice(startIndex, endIndex);
   }, [currentPage, itemsPerPage]);
 
   // 페이지 변경 시 호출되는 함수
@@ -264,29 +264,7 @@ const FestivalListPage = () => {
     setCurrentPage(page);
   };
 
-  //주최자
-  const organizationsList = organizationsData.OrganizationsList;
-  const [startIndex, setStartIndex] = useState(0);
-
-  // 주최자 목록에서 보여질 데이터 슬라이스를 계산합니다.
-  const organizationsListSlice = organizationsList.slice(
-    startIndex,
-    startIndex + 4
-  );
-
-  // 오른쪽 버튼 클릭 시 다음 4개의 항목 데이터를 보여주는 함수
-  const handleRightButtonClick = () => {
-    if (startIndex + 4 < organizationsList.length) {
-      setStartIndex(startIndex + 4);
-    }
-  };
-
-  // 왼쪽 버튼 클릭 시 이전 4개의 항목 데이터를 보여주는 함수
-  const handleLeftButtonClick = () => {
-    if (startIndex - 4 >= 0) {
-      setStartIndex(startIndex - 4);
-    }
-  };
+ 
 
   //-----------------------------------------------------
   // 날짜 형변환
@@ -316,6 +294,7 @@ const FestivalListPage = () => {
   const [eventNames, setEventNames] = useState([]);
   const [eventViews, setEventViews] = useState([]);
   const [eventRegion, setEventRegion] = useState([]);
+  const [organizers, setOrganizers] = useState([]);
 
 
   useEffect(() => {
@@ -341,12 +320,14 @@ const FestivalListPage = () => {
             recruitmentEnd: formatDateTime(event.recruitmentEnd)
           }));
         };
-
+       
         const modifiedEventViews = modifiedEvent(response.data.eventViews);
         setEventViews(modifiedEventViews);
+        setOrganizers(response.data.organizers.content);
 
         console.log('서버로부터 받은 데이터:', response.data);
         console.log(modifiedEventViews);
+        console.log(response.data.organizers.content);
       } catch (error) {
         console.error('데이터를 가져오는 중 에러 발생:', error);
       }
@@ -356,6 +337,33 @@ const FestivalListPage = () => {
     fetchData();
 
   }, []); // 빈 배열을 전달하여 컴포넌트가 처음 마운트될 때만 실행되도록 함
+
+
+  //주최자
+  //const organizationsList = organizationsData.OrganizationsList;
+  const [startIndex, setStartIndex] = useState(0);
+
+  // 주최자 목록에서 보여질 데이터 슬라이스를 계산합니다.
+  const organizersSlice = organizers.slice(
+    startIndex,
+    startIndex + 4
+  );
+
+  // 오른쪽 버튼 클릭 시 다음 4개의 항목 데이터를 보여주는 함수
+  const handleRightButtonClick = () => {
+    if (startIndex + 4 < organizers.length) {
+      setStartIndex(startIndex + 4);
+    }
+  };
+
+  // 왼쪽 버튼 클릭 시 이전 4개의 항목 데이터를 보여주는 함수
+  const handleLeftButtonClick = () => {
+    if (startIndex - 4 >= 0) {
+      setStartIndex(startIndex - 4);
+    }
+  };
+
+  //안뜨게 할거임
 
   return (
     <div>
@@ -443,17 +451,16 @@ const FestivalListPage = () => {
             <ButtonContainer>
               <LeftButton onClick={handleLeftButtonClick}>◁</LeftButton>
               <OrganizationListBoxWrapper>
-                {organizationsListSlice.map((item) => {
-                  return (
-                    <OrganizationList
-                      profile={item.profile}
-                      OrganizationName={item.OrganizationName}
-                      uploadedNumber={item.uploadedNumber}
-                      subscribed={item.subscribed}
-                      subscriberNumber={item.subscriberNumber}
-                    />
-                  );
-                })}
+                {organizersSlice.map((item) => (
+                  <OrganizationList
+                    key={item.organizerId}
+                    organizerProfileFileUrl={item.organizerProfileFileUrl}
+                    organizerName={item.organizerName}
+                    uploadedNumber={item.uploadedNumber}
+                    subscribed={item.subscribed}
+                    countEvent={item.countEvent}
+                  />
+                ))}
               </OrganizationListBoxWrapper>
               <RightButton onClick={handleRightButtonClick}>▷</RightButton>
             </ButtonContainer>

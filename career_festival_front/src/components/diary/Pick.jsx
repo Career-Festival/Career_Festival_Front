@@ -5,6 +5,9 @@ const PickContainer = styled.div`
   display: flex;
   align-items: center;
   margin-bottom: 2vw;
+  @media screen and (max-width: 600px) {
+    font-size: 1vw;
+  }
 `;
 
 const PickLabel = styled.label`

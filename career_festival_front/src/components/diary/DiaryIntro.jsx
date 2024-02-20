@@ -57,7 +57,7 @@ function RecordIntro() {
     <Container>
       <IntroContainer>
         <HelloContainer>
-          <ColorText>{mypageData.name}</ColorText>
+          <ColorText></ColorText>
           <NormalText>님, 안녕하세요?</NormalText>
         </HelloContainer>
         <ContentContainer>

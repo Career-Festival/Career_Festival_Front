@@ -127,10 +127,12 @@ const Participant = () => {
       saveAdditionalInfo(userData); // 세 번째 호출
     }, 1000);
   };
+  
+  const user = JSON.parse(localStorage.getItem("user"));
 
   return (
     <Container>
-      <Title>김커리님, Career Festival에 가입해주셔서 감사합니다.</Title>
+      <Title>{user.userName}님, Career Festival에 가입해주셔서 감사합니다.</Title>
       <Subtitle>
         나에게 맞는{" "}
         <span style={{ fontWeight: "bold" }}>오프라인 커리어 행사</span>를 찾고

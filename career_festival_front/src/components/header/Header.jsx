@@ -251,7 +251,7 @@ const Header = () => {
       <Line />
       <LinkContainer>
         <LinkItem to="/festival-list">행사목록</LinkItem>
-        <LinkItem to="/diary">기록장</LinkItem>
+        <LinkItem to="/diary" onClick={handleMypageButtonClick}>기록장</LinkItem>
         {/* 마이페이지 버튼 */}
         <LinkItem to="/mypage" onClick={handleMypageButtonClick}>
           마이페이지

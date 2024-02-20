@@ -135,20 +135,21 @@ const Organizer = () => {
       console.log("보낼 사용자 데이터:", userData);
 
       saveAdditionalOOInfo(userData);
-    setTimeout(() => {
-      saveAdditionalOOInfo(userData); // 첫 번째 호출
-      saveAdditionalOOInfo(userData); // 두 번째 호출
-      saveAdditionalOOInfo(userData); // 세 번째 호출
-    }, 1000);
+      setTimeout(() => {
+        saveAdditionalOOInfo(userData); // 첫 번째 호출
+        saveAdditionalOOInfo(userData); // 두 번째 호출
+        saveAdditionalOOInfo(userData); // 세 번째 호출
+      }, 1000);
     } else {
       console.error("모든 항목을 완료해야 합니다.");
     }
   };
+  const user = JSON.parse(localStorage.getItem("user"));
 
   // Organizer 컴포넌트의 렌더링 부분입니다.
   return (
     <Container>
-      <Title>김커리님, Career Festival에 가입해주셔서 감사합니다.</Title>
+      <Title>{user.userName}, Career Festival에 가입해주셔서 감사합니다.</Title>
       <Subtitle>
         직접 <span style={{ fontWeight: "bold" }}>오프라인 커리어 행사</span>를
         개설하고 싶으신가요?
@@ -217,7 +218,7 @@ const Organizer = () => {
           display: "flex",
           justifyContent: "space-between",
           marginTop: "30px",
-          marginBottom: "10px",
+          marginBottom: "10px"
         }}
       >
         <label style={{ fontSize: "15px", fontWeight: "bold" }}>
@@ -238,7 +239,7 @@ const Organizer = () => {
           "인문/사회",
           "과학기술",
           "디자인",
-          "관광/여행",
+          "관광/여행"
         ].map((keyword) => (
           <KeywordButton
             key={keyword}
