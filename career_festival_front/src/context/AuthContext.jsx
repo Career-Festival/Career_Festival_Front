@@ -39,7 +39,7 @@ export const AuthProvider = ({ children }) => {
     try {
       console.log("로그인 시도 중...");
       // 서버에 로그인 정보를 전송하고 응답을 기다림
-      const response = await fetch("http://localhost:9000/login", {
+      const response = await fetch("https://www.career-festival.com:443/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -54,7 +54,7 @@ export const AuthProvider = ({ children }) => {
         const userData = await response.json();
         const jwtToken = response.headers.get("Authorization"); // 토큰 헤더에서 추출
         // 사용자 정보를 추가로 가져오는 API 호출
-        const userInfoResponse = await fetch("http://localhost:9000/", {
+        const userInfoResponse = await fetch("https://www.career-festival.com:443/", {
           method: "GET",
           headers: {
             Authorization: jwtToken,
@@ -112,7 +112,7 @@ export const AuthProvider = ({ children }) => {
 
       // 토큰 가져오기
       const token = getTokenFromLocalStorage();
-      const response = await fetch("http://localhost:9000/participant", {
+      const response = await fetch("https://www.career-festival.com:443/participant", {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
@@ -144,7 +144,7 @@ export const AuthProvider = ({ children }) => {
 
       // 토큰 가져오기
       const token = getTokenFromLocalStorage();
-      const response = await fetch("http://localhost:9000/organizer", {
+      const response = await fetch("https://www.career-festival.com:443/organizer", {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
@@ -175,7 +175,7 @@ export const AuthProvider = ({ children }) => {
       // 토큰 가져오기
       const token = getTokenFromLocalStorage();
       // API 엔드포인트 설정
-      const url = `http://localhost:9000/event/organizer`;
+      const url = `https://www.career-festival.com:443/event/organizer`;
       console.log("URL:" + url);
       // Axios를 사용하여 데이터 전송
       axios
@@ -210,7 +210,7 @@ export const AuthProvider = ({ children }) => {
       // 토큰 가져오기
       const token = getTokenFromLocalStorage();
       // 서버에 GET 요청 보내기
-      const response = await axios.get("http://localhost:9000/mypage", {
+      const response = await axios.get("https://www.career-festival.com:443/mypage", {
         headers: {
           Authorization: `${token}`,
         },
@@ -243,7 +243,7 @@ export const AuthProvider = ({ children }) => {
       const token = getTokenFromLocalStorage();
       // 서버에 PATCH 요청 보내기
       const response = await axios.patch(
-        "http://localhost:9000/mypage/update",
+        "https://www.career-festival.com:443/mypage/update",
         updatedInfo,
         {
           headers: {
@@ -275,7 +275,7 @@ export const AuthProvider = ({ children }) => {
 
       // 서버에 POST 요청 보내기
       const response = await axios.post(
-        "http://localhost:9000/event/register/",
+        "https://www.career-festival.com:443/event/register/",
         addData,
         {
           headers: {
@@ -310,7 +310,7 @@ export const AuthProvider = ({ children }) => {
       const token = getTokenFromLocalStorage();
 
       // 서버에 GET 요청 보내기
-      const response = await axios.get("http://localhost:9000", {
+      const response = await axios.get("https://www.career-festival.com:443", {
         headers: {
           Authorization: `${token}`,
         },
@@ -342,7 +342,7 @@ export const AuthProvider = ({ children }) => {
       console.log("🎶메인페이지 정보를 가져오는 중...");
       // 토큰 가져오기
       const token = getTokenFromLocalStorage();
-      const response = await axios.get("http://localhost:9000/festival-list", {
+      const response = await axios.get("https://www.career-festival.com:443/festival-list", {
         headers: {
           Authorization: `${token}`,
         },
@@ -375,7 +375,7 @@ export const AuthProvider = ({ children }) => {
       const eventId = window.location.pathname.split("/").pop();
 
       const response = await axios.get(
-        `http://localhost:9000/event/${eventId}`,
+        `https://www.career-festival.com:443/event/${eventId}`,
         {
           headers: {
             Authorization: `${token}`,
@@ -408,7 +408,7 @@ export const AuthProvider = ({ children }) => {
       const eventId = window.location.pathname.split("/").pop();
 
       const response = await axios.get(
-        `http://localhost:9000/event/${eventId}`,
+        `https://www.career-festival.com:443/event/${eventId}`,
         {
           headers: {
             Authorization: `${token}`,

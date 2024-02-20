@@ -160,7 +160,7 @@ const HomePage = () => {
       try {
         // 서버로 요청 보내기
         console.log("1. 서버로 요청을 보내겠습니다");
-        const response = await fetch("http://localhost:9000/");
+        const response = await fetch("https://www.career-festival.com:443/");
         if (!response.ok) {
           throw new Error("서버로부터 데이터를 가져오는데 실패했습니다.");
         }
@@ -243,7 +243,7 @@ const HomePage = () => {
   useEffect(() => {
     const fetchEventData = async () => {
       try {
-        const response = await axios.get("http://localhost:9000");
+        const response = await axios.get("https://www.career-festival.com:443");
 
         // eventViews datetime 변환 함수
         const modifiedEvent = (events) => {
