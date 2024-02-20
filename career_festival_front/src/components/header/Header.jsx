@@ -201,10 +201,6 @@ const Header = () => {
   // 마이페이지 버튼 클릭 시 fetchMypageInfo 함수 호출 및 2초 대기 설정
   const handleMypageButtonClick = () => {
     fetchMypageInfo(); // fetchMypageInfo 함수 호출
-    setTimeout(() => {
-      // 2초 대기 후 실행
-      console.log("2초가 경과했습니다.");
-    }, 2000);
   };
 
   // 로그인 정보 확인 및 로그 출력
