@@ -73,6 +73,8 @@ export const AuthProvider = ({ children }) => {
           setIsLoggedIn(true);
           setUser(userInfo);
           fetchMypageInfo();
+
+          console.log("🎶fetchMypageInfo를 로그인에서 호출함");
           console.log("로그인 정보 및 토큰이 로컬 스토리지에 저장되었습니다.");
         } else {
           console.error(
@@ -203,7 +205,8 @@ export const AuthProvider = ({ children }) => {
   // AuthProvider 컴포넌트 내에 새로운 함수 추가
   const fetchMypageInfo = async () => {
     try {
-      console.log("마이페이지 정보를 가져오는 중...");
+      console.log("사용자 정보 가져오는중...");
+      console.log("fetchMypageInfo 실행됨");
       // 토큰 가져오기
       const token = getTokenFromLocalStorage();
       // 서버에 GET 요청 보내기

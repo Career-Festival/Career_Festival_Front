@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import EventInfo from "./EventInfo";
-// import SeminarRecord from "./SeminarRecord";
 import PeopleNetwork from "./PeopleNetwork";
 import Pick from "./Pick";
 import { Link } from "react-router-dom";
@@ -31,12 +30,11 @@ const Button = styled(Link)`
 function LectureSeminar() {
   const [isEventInfoComplete, setEventInfoComplete] = useState(false);
   const [isPeopleNetworkComplete, setPeopleNetworkComplete] = useState(false);
-  const [isSeminarRecordComplete, setIsSeminarRecordComplete] = useState({
+  const [isSeminarRecordComplete, ] = useState({
     isComplete: false,
     missingInputs: [],
   });
 
-  const [inputText, setInputText] = useState(""); // 새로운 상태 추가
 
   const handleEventInfoComplete = (isComplete) => {
     setEventInfoComplete(isComplete);
@@ -46,17 +44,12 @@ function LectureSeminar() {
     setPeopleNetworkComplete(isComplete);
   };
 
-  // const handleSeminarRecordComplete = (isComplete) => {
-  //   setIsSeminarRecordComplete(isComplete);
-  // };
-
   const handleSaveToLocalStorage = () => {
     // diary 객체 생성
     const diary = {
       eventInfoComplete: isEventInfoComplete,
       peopleNetworkComplete: isPeopleNetworkComplete,
       seminarRecordComplete: isSeminarRecordComplete,
-      inputText: inputText,
     };
 
     // 로컬 스토리지에 저장
@@ -67,14 +60,6 @@ function LectureSeminar() {
     <LectureSeminarContainer>
       <Pick />
       <EventInfo onInfoComplete={handleEventInfoComplete} />
-      {/* <SeminarRecord onComplete={handleSeminarRecordComplete} /> */}
-      행사 일기
-      <input
-        type="text"
-        style={{ height: "10vw" }}
-        value={inputText}
-        onChange={(e) => setInputText(e.target.value)} // 입력된 텍스트를 상태에 업데이트
-      />
       <PeopleNetwork onComplete={handlePeopleNetworkComplete} />
       <div className="centered">
         <Button to="/diary" onClick={handleSaveToLocalStorage}>

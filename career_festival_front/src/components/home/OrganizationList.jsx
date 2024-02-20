@@ -7,6 +7,7 @@ const OrganizationBox = styled.div`
   border-radius: 1vw;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   align-items: center;
   width: 80%;
   gap: 1vw;
@@ -93,26 +94,27 @@ const OrganizationList = (props) => {
   const navigate = useNavigate();
 
     const onClickOrganizationProfile = () => {
-      navigate(`/organizationinfo/${props.OrganizationName}`, {
-        state: props,
-      });
+      // navigate(`/organizationinfo/${props.OrganizationName}`, {
+      //   state: props,
+      // });
+     alert("정보를 준비중입니다!!");
     };
 
   return (
     <OrganizationBox onClick={onClickOrganizationProfile}>
       <OrganizationProfileImg>
-        <img src={props.profile} alt="주최자 이미지" />
+        <img src={props.organizerProfileFileUrl} alt="주최자 이미지" />
       </OrganizationProfileImg>
 
       <OrganizationInfo>
-        <OrganizationNameWrapper title={props.OrganizationName}>
-          {props.OrganizationName.length > 10
-            ? `${props.OrganizationName.slice(0, 10)}...`
-            : props.OrganizationName}
+        <OrganizationNameWrapper title={props.organizerName}>
+          {props.organizerName.length > 10
+            ? `${props.organizerName.slice(0, 10)}...`
+            : props.organizerName}
         </OrganizationNameWrapper>
 
         <UploadedNumberWrapper>
-          <span>{props.uploadedNumber}</span>개의 행사
+          <span>{props.countEvent}</span>개의 행사
         </UploadedNumberWrapper>
       </OrganizationInfo>
       <SubscribeButtonWrapper>

@@ -183,7 +183,7 @@ const DiaryList = () => {
           </DiaryContainer>
         ))}
       </ContentContainer>
-      {showModal && <Modal onClose={handleCloseModal} selectedItemIndex={selectedItemIndex} />} // 선택된 항목의 인덱스를 전달합니다.
+      {showModal && <Modal onClose={handleCloseModal} selectedItemIndex={selectedItemIndex} />} 
       <Pagination
         currentPage={currentPage}
         totalPages={Math.ceil(dummy.DiaryList.length / itemsPerPage)}

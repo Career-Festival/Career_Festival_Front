@@ -129,7 +129,7 @@ const MyPageCorrection = (props) => {
       </MypageButtonContainer>
 
 
-      <FestivalListContainer>
+      {/* <FestivalListContainer>
           <FestivalListTitle>
                   <h4>내가 관심있는 행사</h4>
           </FestivalListTitle>
@@ -170,7 +170,7 @@ const MyPageCorrection = (props) => {
             />
           ))}
           </DeterminedFestivalListWrapper>
-      </FestivalListContainer>
+      </FestivalListContainer> */}
   </InfoContainer>  
   )
 };

@@ -148,13 +148,13 @@ const OrganizationMypage = (props) => {
         <CorrectionButton>수정하기</CorrectionButton>
       </OrganizationMypageButtonContainer>
 
-
+{/* 
        <OrganizationInsightContainer>
             <OrganizationInsight
                 subscriberNumber = {props.subscriberNumber} //데이터 받아와야함
                 uploadedNumber = {props.uploadedNumber} //데이터 받아와야함
             />
-        </OrganizationInsightContainer>
+        </OrganizationInsightContainer> */}
 
 
 
@@ -170,7 +170,7 @@ const OrganizationMypage = (props) => {
             </OrganizationFestivalListTop>
 
 
-            <OrganizationFestivalListWrapper>
+            {/* <OrganizationFestivalListWrapper>
                 {dummy.RecommendedByPerson.slice(0, 3).map((item) => (
                 <Recommend
                 key={item.eventName}
@@ -183,7 +183,7 @@ const OrganizationMypage = (props) => {
                 profile={item.profile}
               />
             ))}
-            </OrganizationFestivalListWrapper>
+            </OrganizationFestivalListWrapper> */}
         </OrganizationFestivalListContainer>
     </OrganizationInfoContainer>  
   )

@@ -295,7 +295,9 @@ function Enrollment({
         >
           참가 신청하기
         </ApplyButton>
-        <ConfirmButton>참가 확정하기</ConfirmButton>
+        <ConfirmButton onClick={() => openModal("참가 확정되었습니다!")}>
+          참가 확정하기
+        </ConfirmButton>
         <ShareButton>공유</ShareButton>
         <BookmarkButton
           onClick={() => openModal("관심 행사에 등록되었습니다!")}
