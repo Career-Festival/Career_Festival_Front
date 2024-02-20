@@ -46,6 +46,6 @@
   "devDependencies": {
     "@types/react-datepicker": "^4.19.5"
   },
-  
+
   "proxy" :  "https://career-festival.com:443"
 }
