@@ -1,0 +1,5 @@
+[[redirects]]
+  from = "/proxy/*"
+  to = "https://career-festival/:splat"
+  status = 200
+  force = true
